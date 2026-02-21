@@ -5,11 +5,11 @@ echo " Math Game operations "
 function choice_operation() {
 
 echo "choose the operation "
-echo "1)"" multiplication (*)"
-echo "2)""addition (+)"
-echo "3)"" subtraction (-)"
-echo "4)"" division (/)"
-echo "5)"" mixed operations"
+echo "1) multiplication (*)"
+echo "2) addition (+)"
+echo "3) subtraction (-)"
+echo "4) division (/)"
+echo "5) mixed operations"
 
 read -p "enter your choice : " choice
 
@@ -57,16 +57,18 @@ case $choice in
         exit 1
         ;;
 esac
-
+ 
 while true ; do 
     read -p "enter your answer : " answer
     if ! [[ $answer =~ ^-?[0-9]+$ ]] ; then
-        echo "invalid input, please enter a number"
-    elif [ $answer -eq $result ] ; then
-        echo "correct answer!"
+        echo "invalid input, pls enter a number"
+    elif [ $answer -eq $result ] 
+
+    then
+        echo "correct answer"
         break
     else
-        echo "wrong answer, try again."
+        echo "wrong answer"
     fi
-done
+done    
 
