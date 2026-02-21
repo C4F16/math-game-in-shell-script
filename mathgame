@@ -1,0 +1,72 @@
+#!/bin/bash
+
+echo " Math Game operations "
+
+function choice_operation() {
+
+echo "choose the operation "
+echo "1)"" multiplication (*)"
+echo "2)""addition (+)"
+echo "3)"" subtraction (-)"
+echo "4)"" division (/)"
+echo "5)"" mixed operations"
+
+read -p "enter your choice : " choice
+
+}
+
+choice_operation
+
+
+num1=$(( RANDOM % 10 +1 ))
+num2=$(( RANDOM % 10 +1 ))
+
+case $choice in
+    1|"*") 
+    result=$(( num1 * num2 ))
+    echo " $num1 * $num2 = ?"
+    ;;
+    2|"+")
+    result=$(( num1 + num2 ))
+    echo " $num1 + $num2 = ?"
+    ;;
+    3|"-")
+    result=$(( num1 - num2 ))
+    echo " $num1 - $num2 = ?"
+    ;;
+    4|"/")
+        while [ $num2 -eq 0 ]; do
+               num2=$(( RANDOM % 10 +1 ))
+        done
+        result=$(( num1 / num2 ))
+        echo " $num1 / $num2 = ?"
+        ;;
+    5)
+        operations=$(( RANDOM % 4 ))
+        case $operations in
+            0) result=$(( num1 * num2 )); echo " $num1 * $num2 = ?";;
+            1) result=$(( num1 + num2 )); echo " $num1 + $num2 = ?";;
+            2) result=$(( num1 - num2 )); echo " $num1 - $num2 = ?";;
+            3) while [ $num2 -eq 0 ] ; do num2=$(( RANDOM % 10 +1 )) ; done 
+                result=$(( num1 / num2 )) 
+                echo " $num1 / $num2 = ?";;
+        esac
+        ;;
+    *)
+      echo "invalid choice"
+        exit 1
+        ;;
+esac
+
+while true ; do 
+    read -p "enter your answer : " answer
+    if ! [[ $answer =~ ^-?[0-9]+$ ]] ; then
+        echo "invalid input, please enter a number"
+    elif [ $answer -eq $result ] ; then
+        echo "correct answer!"
+        break
+    else
+        echo "wrong answer, try again."
+    fi
+done
+
