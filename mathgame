@@ -4,6 +4,7 @@ echo " Math Game operations "
 
 function choice_operation() {
 
+
 echo "choose the operation "
 echo "1) multiplication (*)"
 echo "2) addition (+)"
