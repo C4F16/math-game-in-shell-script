@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "rock paper scissor game"
+
+while true; do
+    echo "chose from 1 to 3"
+    echo "1) rock"
+    echo "2) paper"
+    echo "3) scissor"
+    read -p "enter ur choice " choice
+    
+    if [[ $choice -ge 1 && $choice -le 3 ]] ; then
+        break
+    else
+        echo "invalid input please enter a number between 1 and 3"
+    fi
+done
+
+computerchoice=$(( RANDOM % 3 + 1 ))
+
+if [ $choice -eq $computerchoice ] ;then 
+
+    echo "draw"
+    elif [ $choic -eq 1 && computercoice -eq 3 ] || [ $choice -eq 2 && computerchoice -eq 1 ] || [ $choice -eq 3 && computerchoice -eq 2 ] ; then
+        echo "you win"
+    else
+        echo "you lose"
+fi 
+
+
+
+
+        
